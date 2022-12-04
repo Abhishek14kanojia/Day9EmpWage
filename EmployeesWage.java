@@ -4,16 +4,13 @@ public class EmployeesWage {
 
 	public static final int PartTime = 1;
 	public static final int FullTime = 2;
-	public static final int EmpWage = 20;
-	public static final int WorkingDay = 2;
-	public static final int HrsInmonth =100;
 	
-	public static int cumputerEmpWage() {
+	public static int computerEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
 		int emphrs = 0;
 		int totalEmphrs = 0;
 		int totalWorkingDays =0;
 		
-		while (totalEmphrs <= HrsInmonth && totalWorkingDays < WorkingDay) {
+		while (totalEmphrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays) {
 			totalWorkingDays++;
 			
 		int empCheck = (int)Math.floor(Math.random()*10)%3;
@@ -36,12 +33,14 @@ public class EmployeesWage {
 		
 		}
 		
-		int totalEmpWage = totalEmphrs * EmpWage;
-		System.out.println("Total Employee Wage : " + totalEmpWage);
+		int totalEmpWage = totalEmphrs * empRatePerHour;
+		System.out.println("Total Employee Wage for Company : " + company + " is : " + totalEmphrs);
 		return totalEmpWage;
 	}
 	public static void main(String[] args) {
-		cumputerEmpWage();
+		computerEmpWage("TCS", 20, 2, 10);
+		computerEmpWage("Infosys", 10, 4, 20);
+		
 	}
 	
 }
